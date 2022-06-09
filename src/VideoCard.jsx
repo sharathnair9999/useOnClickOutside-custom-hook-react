@@ -1,4 +1,6 @@
 import React from 'react';
+import useClickOutside from './useClickOutside';
+import { VideoActions } from './VideoActions';
 
 const VideoCard = ({ video }) => {
   const { videoId, videoTitle, videoThumbnail } = video;
@@ -8,18 +10,11 @@ const VideoCard = ({ video }) => {
       <img src={videoThumbnail} alt="thumbnail1" />
       <div className="video_card__bottom">
         <p>{videoTitle}</p>
-        <section className="video__actions">
-          <button onClick={() => setShowOptions((state) => !state)}>
-            &#8942;
-          </button>
-          <section
-            className={`video__actions__options ${!showOptions && 'hidden'} `}
-          >
-            <span>Like</span>
-            <span>Add To Playlist</span>
-            <span>Add To Watch Later</span>
-          </section>
-        </section>
+        <VideoActions
+          isComponentVisible={isComponentVisible}
+          setIsComponentVisible={setIsComponentVisible}
+          ref={ref}
+        />
       </div>
     </div>
   );
