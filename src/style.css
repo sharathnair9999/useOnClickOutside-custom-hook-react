@@ -47,8 +47,7 @@ p {
 }
 
 .video__actions__options.hidden {
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
   transition: all 0.2s ease-in-out;
 }
 
