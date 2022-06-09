@@ -4,8 +4,7 @@ import { VideoActions } from './VideoActions';
 
 const VideoCard = ({ video }) => {
   const { videoId, videoTitle, videoThumbnail } = video;
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useClickOutside(false);
+  const [showOptions, setShowOptions] = React.useState(false);
   return (
     <div key={videoId} className="video__card">
       <img src={videoThumbnail} alt="thumbnail1" />
